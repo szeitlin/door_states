@@ -19,29 +19,32 @@ class Door(object):
         return msg
 
     def open_door (self):
-        self.state = False
-        return self.state
-
-    def close_door (self):
         self.state = True #True = open
         return self.state
 
-    def flip_doors(self):
+    def close_door (self):
+        self.state = False
+        return self.state
+
+    def flip_doors(self, door_list = []):
         x =1
-        door_list = []
         while x <= 2:               #start small
             for x in range(1, 10):
-                door_list.append(open_door())
+                door_list.append(self.open_door())
             x += 1
         return door_list
 
+import itertools
+
 door_list = range(1,101)
+
+test = Door()
 
 state_1 = [i for i in itertools.repeat(Door, 100)] #idea is to create list of objects, all initially closed
 
 print state_1[:5]
 
-flip_doors()
+Door.flip_doors(test, state_1)
 
 print door_list[:5]
 

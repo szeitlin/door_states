@@ -59,7 +59,7 @@ def loop_doors():
     '''
     for i in range(2, 101):
         colname = "state_" + str(i)
-        
+
 
 
 
